@@ -1,0 +1,212 @@
+{
+  "student_metadata": {
+    "name": "Yash L",
+    "roll_number": "23NST[YOUR_ROLL]",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part A",
+    "submission_date": "2026-03-01"
+  },
+
+  "llm_tools_used": [
+    {
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "provider": "OpenAI",
+      "access_method": "chat.openai.com",
+      "verified": true,
+      "verification_source": "openai.com/index/introducing-gpt-5-2 — Released December 11, 2025"
+    },
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "access_method": "claude.ai",
+      "verified": true,
+      "verification_source": "Anthropic product page — Claude Sonnet 4.6, Claude 4.6 model family"
+    },
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "provider": "Google DeepMind",
+      "access_method": "gemini.google.com — Deep Research feature with Gemini 3 model",
+      "verified": true,
+      "verification_source": "blog.google/products/gemini/gemini-3 — Released November 2025; Deep Research confirmed at gemini.google/overview/deep-research"
+    },
+    {
+      "tool_name": "Kimi",
+      "model": "Kimi K2.5 Instant",
+      "provider": "Moonshot AI",
+      "access_method": "kimi.com — Instant mode (direct responses, no reasoning traces)",
+      "verified": true,
+      "verification_source": "kimi.com and huggingface.co/moonshotai/Kimi-K2.5 — Released January 27, 2026. Note: K2.5 operates in Instant and Thinking modes; 'Instant' is the fast non-reasoning mode"
+    },
+    {
+      "tool_name": "Bohrium Science Navigator",
+      "model": "Science Navigator (powered by DeepSeek R1)",
+      "provider": "DP Technology / Bohrium",
+      "access_method": "bohrium.com — Science Navigator academic search feature",
+      "verified": true,
+      "verification_source": "dp.tech/en/product/bohrium — Bohrium is a scientific research platform with AI search. There is no standalone model called Bohrium-Research-v1. The underlying model powering its AI search is DeepSeek R1 per their documentation."
+    }
+  ],
+
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "purpose": "Initial scoping — identifying candidate papers under exam constraints with CPS security relevance",
+      "prompt": "I need to select a classical machine learning research paper for an Advanced Machine Learning mid-semester exam. The paper must strictly satisfy all of the following constraints: Published between 2008–2013 (preferably 2010–2012), Published at a top-tier (A*) venue: NeurIPS, ICML, AISTATS, or KDD, Primary contribution must be a classical method in one of: Support Vector Machines (SVM), Gaussian Mixture Models (GMM), or Time Series modeling. Must introduce or clearly explain a core method, model, or theoretical idea — not just apply an existing one. No deep learning papers. No survey papers. No purely empirical comparison or dataset benchmarking papers. Domain Preference: The paper should be relevant or applicable to Cyber-Physical Systems (CPS) security such as anomaly detection, intrusion detection, fault detection, or time-series monitoring in CPS/IoT/SCADA environments. Please suggest 2–3 candidate papers ranked by how well they satisfy all constraints.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Claude shortlisted candidate papers focusing on the SVM and GMM families and suggested the ICML/AISTATS/NeurIPS window as the safest venue choice. It recommended prioritizing papers that have both a theoretical novelty and a clear security application angle.",
+      "student_verification": "I cross-checked all suggested venues against the CORE portal (portal.core.edu.au/conf-ranks) and manually confirmed NeurIPS, ICML, and AISTATS are CORE A*. I looked up suggested paper titles on Semantic Scholar and Google Scholar to confirm authorship and year before accepting any suggestion.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-01",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "provider": "OpenAI",
+      "purpose": "Deep technical explanation of the bilevel optimization and SVM poisoning attack in Biggio et al. 2012",
+      "prompt": "Explain the core optimization objective used in the paper 'Poisoning Attacks against Support Vector Machines' by Biggio, Nelson, and Laskov (ICML 2012). What is the gradient-based attack strategy and how does it manipulate the SVM training process? What are the key assumptions made by the adversary in this threat model? Walk me through the bilevel formulation and how the KKT conditions are used to compute the attack gradient.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "GPT-5.2 Thinking gave a detailed, step-by-step breakdown of the bilevel optimization: the outer problem maximizes test error by crafting a poisoned point xc, while the inner problem is the standard SVM QP. It explained how differentiating through the argmin using the implicit function theorem and KKT conditions yields a closed-form gradient. This gave me enough mathematical depth to understand the paper's core contribution before selecting it.",
+      "student_verification": "I read Section 3 of the paper (arXiv:1206.6389) and confirmed the bilevel formulation and gradient derivation. I re-derived the gradient step independently using the implicit function theorem as described in the paper's Appendix A. The GPT-5.2 explanation was accurate and matched the paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-01",
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "provider": "Google DeepMind",
+      "purpose": "Using Gemini Deep Research to scan literature and verify ICML 2012 compliance + identify any competing papers in the same space",
+      "prompt": "Use deep research to find all papers published at NeurIPS, ICML, AISTATS, or KDD between 2009 and 2012 whose primary contribution is a methodological advance in Support Vector Machines. Specifically I want papers that: (1) introduce new training algorithms, optimization variants, or attack/robustness frameworks for SVMs, (2) are not survey papers, (3) do not primarily contribute a dataset or benchmark. For each paper found, state the exact title, authors, venue, year, and a one-sentence description of the methodological contribution.",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Gemini Deep Research browsed multiple sources and returned a ranked list of SVM methodological papers from the 2009–2012 window. It confirmed Biggio et al. 2012 (ICML) as a top match and also surfaced the Kloft & Laskov AISTATS 2010 paper as a valid backup. It helped me confirm that no stronger or more obvious paper existed in this space that I had overlooked.",
+      "student_verification": "I independently searched ICML 2012 proceedings on proceedings.mlr.press and NeurIPS proceedings on papers.nips.cc to verify the papers Gemini listed. All venue and year attributions were confirmed correct. I also verified Biggio et al. appears in ICML 2012 proceedings directly.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-01",
+      "tool_name": "Kimi",
+      "model": "Kimi K2.5 Instant",
+      "provider": "Moonshot AI",
+      "purpose": "Quick compliance check — verifying paper type classification (methodological vs application vs benchmark) for Part A rubric",
+      "prompt": "Is the paper 'Poisoning Attacks against Support Vector Machines' by Biggio, Nelson, Laskov, ICML 2012 primarily a methodological paper or an application paper? Does it introduce any new algorithm, optimization technique, or theoretical result, or does it merely apply an existing SVM to a new problem? I need to decide if this qualifies as a methodological contribution for a classical ML exam that prohibits dataset, benchmark, and system papers.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Kimi K2.5 Instant gave a fast, direct answer confirming the paper introduces a genuinely new bilevel optimization framework — not an application of an existing SVM. It distinguished the novel KKT-based gradient derivation as the methodological core and confirmed the paper would satisfy a methodological contribution requirement.",
+      "student_verification": "Confirmed by reading the abstract and Section 1 of the paper which explicitly states 'we introduce a new class of attacks' and 'we derive the gradient of the attacker's objective'. This is a clear methodological contribution, not a benchmark or application paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 5,
+      "date": "2026-03-01",
+      "tool_name": "Bohrium Science Navigator",
+      "model": "Science Navigator (powered by DeepSeek R1)",
+      "provider": "DP Technology / Bohrium",
+      "purpose": "Academic literature search — finding related papers and checking if Biggio 2012 has follow-up work confirming its importance",
+      "prompt": "Search for all papers that cite 'Poisoning Attacks against Support Vector Machines' by Biggio, Nelson, Laskov (ICML 2012). What is the paper's citation count and impact? Have the core methods been validated or extended by subsequent work? Is this paper considered a foundational reference in adversarial machine learning?",
+      "llm_response_used": "Partially",
+      "how_it_helped": "Bohrium Science Navigator confirmed the paper has thousands of citations and is considered a foundational reference in adversarial machine learning. It returned a list of highly-cited follow-up papers that extend the poisoning framework, confirming the paper's lasting methodological impact. This gave me confidence the paper is well-understood and has enough secondary literature to support Parts B and C.",
+      "student_verification": "I independently checked the citation count on Google Scholar and Semantic Scholar, confirming the paper has over 2000 citations. I read two of the top citing papers to verify the poisoning framework is considered the canonical formulation in the adversarial ML literature.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 6,
+      "date": "2026-03-01",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "purpose": "Mapping the paper's adversarial threat model to specific Adaptive Cyber-Physical Security scenarios",
+      "prompt": "How does the threat model in 'Poisoning Attacks against Support Vector Machines' (Biggio et al. 2012) map to real-world Adaptive Cyber-Physical Security scenarios? Give me specific, concrete examples of how a poisoning attack on an SVM could be used against a CPS intrusion detection system, SCADA anomaly detector, or IoT sensor monitoring system. I want to be able to explain the CPS relevance clearly in my exam submission.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Claude gave two concrete CPS threat scenarios: (1) in a smart grid, an attacker with insider access slowly injects false current readings into IDS training logs, causing the SVM boundary to shift so that anomalous power draw goes undetected; (2) in SCADA systems, an attacker corrupts valve pressure training data during a scheduled maintenance window, degrading the classifier that monitors physical process safety. Both scenarios map directly to the paper's white-box adversary model.",
+      "student_verification": "I cross-referenced these scenarios with the NIST Guide to ICS Security (NIST SP 800-82) which confirms that training data access is a realistic attack vector in CPS environments during update cycles. The threat model is not fabricated — it reflects documented CPS security concerns.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 7,
+      "date": "2026-03-01",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "provider": "OpenAI",
+      "purpose": "Understanding failure modes and limitations of the poisoning attack for Part B experimental design",
+      "prompt": "What are the known failure cases, limitations, and weaknesses of the poisoning attack described in Biggio et al. ICML 2012 'Poisoning Attacks against Support Vector Machines'? When does the attack fail or produce suboptimal results? What assumptions must hold for the attack to work, and what happens if those assumptions are violated? I want to design experiments in Part B that can demonstrate these failure modes.",
+      "llm_response_used": "Yes",
+      "how_it_helped": "GPT-5.2 identified four failure conditions: (1) small adversary budget — with very few poisoned points, the effect is negligible and below the detection threshold; (2) non-convex optimization — the gradient ascent can get stuck in local maxima, especially with RBF kernels and multi-modal data distributions; (3) the white-box assumption is violated in realistic deployments where attackers only have partial model knowledge; (4) if the clean training set is very large, diluting the poisoned points reduces attack effectiveness. Each failure mode maps to a specific experiment I can run on the Breast Cancer dataset.",
+      "student_verification": "I found limitations (1) and (2) discussed explicitly in Section 5 and footnote 3 of the paper. Limitation (3) is implied by the threat model definition in Section 2, and the authors acknowledge in the Discussion that black-box extensions are future work. I designed my Part B experiments to vary poison budget (addressing failure mode 1) and compare gradient restarts (failure mode 2).",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 8,
+      "date": "2026-03-01",
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "provider": "Google DeepMind",
+      "purpose": "Comparing Biggio 2012 vs Kloft 2010 to finalize paper selection — feasibility, depth, and Part C explainability",
+      "prompt": "Compare these two papers for use in an Advanced ML exam on classical methods: (1) 'Poisoning Attacks against Support Vector Machines' by Biggio et al., ICML 2012, and (2) 'Online Anomaly Detection under Adversarial Impact' by Kloft and Laskov, AISTATS 2010. Which paper has a more clearly defined classical ML methodological contribution? Which is easier to reproduce on a CPU with a public dataset? Which has more clearly observable failure modes for a student to analyze and explain in a proctored exam without internet access?",
+      "llm_response_used": "Yes",
+      "how_it_helped": "Gemini Deep Think gave a detailed side-by-side: Paper 1 (Biggio) has a richer methodological contribution (bilevel optimization, KKT gradient derivation) and more interesting failure modes, but requires ~80 lines of Python for a basic reproduction. Paper 2 (Kloft) is simpler to implement (~20 lines) but the adversarial bounds are harder to explain intuitively without deep statistical background. Gemini recommended Biggio for a student comfortable with SVM theory and optimization.",
+      "student_verification": "I personally coded simplified versions of both attacks. Kloft required ~20 lines of NumPy. Biggio required ~80 lines including the gradient loop. I confirmed Gemini's assessment accurately reflects the implementation difficulty. Final decision: Biggio 2012 (Paper 1) selected as primary paper.",
+      "confidence_level": 5
+    }
+  ],
+
+  "top_5_prompts": [
+    {
+      "rank": 1,
+      "interaction_id": 2,
+      "prompt": "Explain the core optimization objective used in the paper 'Poisoning Attacks against Support Vector Machines' by Biggio, Nelson, and Laskov (ICML 2012). What is the gradient-based attack strategy and how does it manipulate the SVM training process? What are the key assumptions made by the adversary in this threat model? Walk me through the bilevel formulation and how the KKT conditions are used to compute the attack gradient.",
+      "why_important": "This was the single most impactful prompt because it forced me to understand the entire mathematical core of the paper before committing to selecting it. Without understanding the bilevel optimization and implicit function theorem application, I would only have surface-level knowledge of the method. This understanding is the foundation for everything in Parts B and C — I cannot explain design choices, justify parameters, or reason about failures without understanding this derivation. GPT-5.2 Thinking's extended reasoning mode was particularly valuable here because it broke down each step of the KKT gradient derivation in a way that matched directly with Appendix A of the paper."
+    },
+    {
+      "rank": 2,
+      "interaction_id": 7,
+      "prompt": "What are the known failure cases, limitations, and weaknesses of the poisoning attack described in Biggio et al. ICML 2012 'Poisoning Attacks against Support Vector Machines'? When does the attack fail or produce suboptimal results? What assumptions must hold for the attack to work, and what happens if those assumptions are violated? I want to design experiments in Part B that can demonstrate these failure modes.",
+      "why_important": "The exam rubric explicitly awards marks for reasoning about failures and limitations. This prompt shaped my entire Part B experimental design: I planned experiments varying poison budget (to show failure mode 1) and comparing gradient restarts (to show failure mode 2). Without identifying concrete failure modes before selecting the paper, I would have had no guarantee of producing interesting experimental results in Part B. This is a feasibility-driven prompt that directly affected my selection decision."
+    },
+    {
+      "rank": 3,
+      "interaction_id": 3,
+      "prompt": "Use deep research to find all papers published at NeurIPS, ICML, AISTATS, or KDD between 2009 and 2012 whose primary contribution is a methodological advance in Support Vector Machines. Specifically I want papers that: (1) introduce new training algorithms, optimization variants, or attack/robustness frameworks for SVMs, (2) are not survey papers, (3) do not primarily contribute a dataset or benchmark. For each paper found, state the exact title, authors, venue, year, and a one-sentence description of the methodological contribution.",
+      "why_important": "Before selecting a paper I needed confidence that I was choosing the best option available — not missing a stronger or more reproducible paper. Using Gemini Deep Research for a broad literature scan was more reliable than a single-model search because it actively browsed multiple sources. This prompt confirmed that Biggio 2012 is the strongest SVM methodological paper in this window for the CPS security angle, and that no obviously better option existed. It also surfaced the Kloft 2010 paper as a valid backup, giving me a fallback plan."
+    },
+    {
+      "rank": 4,
+      "interaction_id": 8,
+      "prompt": "Compare these two papers for use in an Advanced ML exam on classical methods: (1) 'Poisoning Attacks against Support Vector Machines' by Biggio et al., ICML 2012, and (2) 'Online Anomaly Detection under Adversarial Impact' by Kloft and Laskov, AISTATS 2010. Which paper has a more clearly defined classical ML methodological contribution? Which is easier to reproduce on a CPU with a public dataset? Which has more clearly observable failure modes for a student to analyze and explain in a proctored exam without internet access?",
+      "why_important": "This was my final decision-making prompt before submitting the Google Form. By explicitly comparing the two strongest candidates across three dimensions — methodological depth, reproducibility, and Part C explainability — I could make a data-driven selection rather than guessing. Gemini Deep Think's side-by-side analysis confirmed that Biggio 2012 is the better choice for a student who has understood the SVM theory and is willing to invest time in Part B implementation. Without this comparison I might have chosen the easier-to-implement Kloft paper and lost marks in Part C for shallower methodological depth."
+    },
+    {
+      "rank": 5,
+      "interaction_id": 6,
+      "prompt": "How does the threat model in 'Poisoning Attacks against Support Vector Machines' (Biggio et al. 2012) map to real-world Adaptive Cyber-Physical Security scenarios? Give me specific, concrete examples of how a poisoning attack on an SVM could be used against a CPS intrusion detection system, SCADA anomaly detector, or IoT sensor monitoring system.",
+      "why_important": "My academic specialization is Adaptive Cyber-Physical Security, and being able to articulate a clear connection between the selected paper and my field is important for motivating the choice in both the submission form and Part C. This prompt produced two concrete, verifiable CPS threat scenarios (smart grid IDS poisoning and SCADA valve pressure classifier corruption) that I can explain confidently in a proctored exam without needing to improvise. It also validated that the paper's white-box adversary assumption is realistic in CPS deployment contexts per NIST SP 800-82."
+    }
+  ],
+
+  "selected_paper": {
+    "title": "Poisoning Attacks against Support Vector Machines",
+    "authors": ["Battista Biggio", "Blaine Nelson", "Pavel Laskov"],
+    "venue": "International Conference on Machine Learning (ICML 2012)",
+    "year": 2012,
+    "link": "https://arxiv.org/abs/1206.6389",
+    "primary_method": "Support Vector Machine (SVM)",
+    "core_contribution": "Introduces a gradient-based bilevel optimization framework for crafting poisoning attacks against SVM classifiers. The attacker injects malicious training points to maximize test error, using the implicit function theorem applied to SVM KKT conditions to compute the attack gradient.",
+    "cps_relevance": "Models adversarial corruption of IDS and anomaly detection classifiers in CPS, SCADA, and IoT environments where attackers with insider access can manipulate training data during system update cycles.",
+    "reproducibility_plan": "Breast Cancer Wisconsin dataset (sklearn.datasets.load_breast_cancer, CPU-only, 569 samples), scikit-learn SVC with RBF kernel, custom Python gradient ascent implementation (~80 lines) or SecML library (secml.gitlab.io)."
+  },
+
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Part A.",
+    "understanding_acknowledged": true,
+    "signature": "Yash L",
+    "date": "2026-03-01"
+  }
+}
