@@ -1,0 +1,103 @@
+{
+  "student_metadata": {
+    "name": "Yash Lunawat",
+    "roll_number": "230110",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "provider": "OpenAI",
+      "access_method": "chat.openai.com",
+      "verified": true,
+      "verification_source": "openai.com/index/introducing-gpt-5-2 — Released December 11, 2025"
+    },
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "access_method": "claude.ai",
+      "verified": true,
+      "verification_source": "Anthropic product page — Claude Sonnet 4.6, Claude 4.6 model family"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "task_tag": "Task 2.2",
+      "purpose": "Implementing the KKT gradient computation (Equation 10) for linear kernel",
+      "prompt": "Help me implement Equation 10 from Biggio et al. 2012 for the linear kernel case in numpy. I need to compute the gradient of the validation hinge loss w.r.t. the attack point x_c.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Rewrote gradient computation to separate linear kernel case. Added detailed inline comments mapping each line to paper equations. Implemented edge case handling for alpha_c = 0 and empty margin SV set.",
+      "how_it_helped": "Provided the initial translation of Eq. 10 matrix operations into numpy, including Q_ss construction and inversion.",
+      "student_verification": "Hand-traced each term against Eq. 10. Verified gradient direction produces error increase vs random direction.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "task_tag": "Task 2.2",
+      "purpose": "Extracting SVM dual coefficients from scikit-learn's SVC object",
+      "prompt": "How do I extract the dual coefficients alpha and support vector indices from scikit-learn's SVC? What is the relationship between dual_coef_ and the actual alpha values?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Added the distinction between margin SVs (0 < alpha < C) and error SVs (alpha = C) which is critical for the KKT partition.",
+      "how_it_helped": "Clarified that svm.dual_coef_ gives y_i * alpha_i (signed) and svm.support_ gives the indices into the original training array.",
+      "student_verification": "Tested on a small 10-point dataset and confirmed alpha values match manual computation.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "task_tag": "Task 2.2",
+      "purpose": "Handling numerical stability in Q_ss matrix inversion",
+      "prompt": "The Q_ss matrix in my gradient computation is sometimes nearly singular. How should I handle this for numerical stability?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Used Tikhonov regularisation (1e-8 * I) instead of pseudoinverse for consistency with the paper's approach.",
+      "how_it_helped": "Suggested adding a small regularisation term to the diagonal before inversion: Q_ss + eps*I.",
+      "student_verification": "Tested with and without regularisation; non-regularised version crashes on iterations 30-50.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 4,
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "task_tag": "Task 2.2",
+      "purpose": "Structuring the attack loop to match Algorithm 1 with proper convergence criteria",
+      "prompt": "What is a good step size and convergence criterion for the gradient ascent loop in Algorithm 1?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Set step_size=0.02 and gradient norm threshold 1e-8. Added bounding box projection via np.clip(x_c, 0, 1).",
+      "how_it_helped": "Suggested starting with step_size around 0.01-0.05 and using gradient norm for convergence detection.",
+      "student_verification": "Ran the attack with different step sizes (0.01, 0.02, 0.05) and confirmed 0.02 gives stable convergence.",
+      "confidence_level": 4
+    }
+  ],
+  "top_5_prompts": [
+    { "rank": 1, "interaction_id": 1, "prompt": "Help me implement Equation 10 from Biggio et al. 2012 for the linear kernel case in numpy", "why_important": "Core implementation — most complex code in the project." },
+    { "rank": 2, "interaction_id": 2, "prompt": "How do I extract the dual coefficients alpha and support vector indices from scikit-learn's SVC?", "why_important": "Essential for computing the gradient — scikit-learn API is non-obvious." },
+    { "rank": 3, "interaction_id": 3, "prompt": "How should I handle the case where Q_ss is nearly singular?", "why_important": "Numerical stability is critical for the gradient computation." },
+    { "rank": 4, "interaction_id": 4, "prompt": "What is a good step size and convergence criterion for Algorithm 1?", "why_important": "Hyperparameter choices affect attack effectiveness." },
+    { "rank": 5, "interaction_id": 1, "prompt": "What is the correct way to compute Q_ss = y_s * y_s^T * K(X_s, X_s) for a linear kernel?", "why_important": "Matrix construction for the KKT gradient." }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.2 of Part B.",
+    "understanding_acknowledged": true,
+    "signature": "Yash Lunawat",
+    "date": "2026-03-07"
+  }
+}

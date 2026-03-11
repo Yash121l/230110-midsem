@@ -1,0 +1,88 @@
+{
+  "student_metadata": {
+    "name": "Yash Lunawat",
+    "roll_number": "230110",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "provider": "Google DeepMind",
+      "access_method": "gemini.google.com — Deep Research feature with Gemini 3 model",
+      "verified": true,
+      "verification_source": "blog.google/products/gemini/gemini-3 — Released November 2025; Deep Research confirmed at gemini.google/overview/deep-research"
+    },
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "access_method": "claude.ai",
+      "verified": true,
+      "verification_source": "Anthropic product page — Claude Sonnet 4.6, Claude 4.6 model family"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "task_tag": "Task 2.3",
+      "purpose": "Structuring the result comparison table and understanding expected magnitudes",
+      "prompt": "How should I structure a comparison between my reproduction results on Breast Cancer and the paper's MNIST results? What metrics matter?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Added the multi-point attack experiment to replicate Figure 3. Wrote gap analysis based on actual observations.",
+      "how_it_helped": "Suggested table format with metric/our result/paper result columns and identified clean error, single-point increase, and multi-point trend as key metrics.",
+      "student_verification": "Verified all reported numbers match actual notebook outputs.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "task_tag": "Task 2.3",
+      "purpose": "Creating confusion matrix visualisation and explaining magnitude gap",
+      "prompt": "How do I create side-by-side confusion matrices using matplotlib and seaborn for clean vs poisoned SVMs?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Customised colour scheme, labels, and layout. Added proper titles distinguishing clean vs poisoned.",
+      "how_it_helped": "Provided the seaborn heatmap + matplotlib subplot structure for side-by-side matrices.",
+      "student_verification": "Ran the code and confirmed matrices show correct prediction counts.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "task_tag": "Task 2.3",
+      "purpose": "Drafting the reproducibility checklist",
+      "prompt": "What is a good format for a reproducibility checklist in a research notebook? What items should it cover?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Added specific items for random seed (42), requirements.txt versioning, and CPU-only environment details.",
+      "how_it_helped": "Provided a checklist template covering seeds, dependencies, hardware, and data provenance.",
+      "student_verification": "Confirmed all checklist items are satisfied by the actual project setup.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    { "rank": 1, "interaction_id": 1, "prompt": "How should I structure a comparison between my reproduction results and the paper's results?", "why_important": "Core structure for the results section." },
+    { "rank": 2, "interaction_id": 1, "prompt": "Why would a poisoning attack on Breast Cancer data show smaller error increases than on MNIST?", "why_important": "Gap analysis reasoning." },
+    { "rank": 3, "interaction_id": 2, "prompt": "How do I create side-by-side confusion matrices using matplotlib?", "why_important": "Required visualization." },
+    { "rank": 4, "interaction_id": 3, "prompt": "What is a good format for a reproducibility checklist in a research notebook?", "why_important": "Rubric requires a reproducibility checklist." },
+    { "rank": 5, "interaction_id": 1, "prompt": "What key metrics should I compare when reproducing a poisoning attack paper?", "why_important": "Metric selection for comparison table." }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.3 of Part B.",
+    "understanding_acknowledged": true,
+    "signature": "Yash Lunawat",
+    "date": "2026-03-07"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "student_metadata": {
+    "name": "Yash Lunawat",
+    "roll_number": "230110",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "provider": "OpenAI",
+      "access_method": "chat.openai.com",
+      "verified": true,
+      "verification_source": "openai.com/index/introducing-gpt-5-2 — Released December 11, 2025"
+    },
+    {
+      "tool_name": "Kimi",
+      "model": "Kimi K2.5 Instant",
+      "provider": "Moonshot AI",
+      "access_method": "kimi.com — Instant mode (direct responses, no reasoning traces)",
+      "verified": true,
+      "verification_source": "kimi.com and huggingface.co/moonshotai/Kimi-K2.5 — Released January 27, 2026"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "task_tag": "Task 3.1",
+      "purpose": "Designing the two ablation components and fair comparison methodology",
+      "prompt": "What are the most meaningful components to ablate in the SVM poisoning attack algorithm? I need two independent components that can be removed/simplified separately.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Chose gradient direction and initialisation strategy as the two components. Implemented both ablated versions independently.",
+      "how_it_helped": "Identified gradient computation and initialisation as the two cleanly decomposable components of Algorithm 1.",
+      "student_verification": "Confirmed that each ablation modifies exactly one component while keeping all else identical.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Kimi",
+      "model": "Kimi K2.5 Instant",
+      "task_tag": "Task 3.1",
+      "purpose": "Quick implementation help for the random-direction ablation baseline",
+      "prompt": "How should I implement a random direction baseline that is a fair comparison to the KKT gradient for SVM poisoning?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Used random unit vectors from standard normal distribution. Kept step size, iterations, and bounds identical to full method.",
+      "how_it_helped": "Suggested replacing only the gradient direction with random unit vectors, keeping all other components fixed for fair ablation.",
+      "student_verification": "Verified that the only difference is the direction — step size, bounds, and evaluation are the same.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "task_tag": "Task 3.1",
+      "purpose": "Interpreting the ablation results and writing the 5-7 sentence analysis",
+      "prompt": "What does it mean if the initialisation ablation shows less effect than the gradient ablation? How should I interpret this?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Wrote the interpretation based on actual numerical results from the 5 experiment runs.",
+      "how_it_helped": "Explained that the gradient is the core contribution while initialisation is an engineering acceleration — the method degrades to noise without the gradient but can partially recover from bad init.",
+      "student_verification": "Confirmed the interpretation is consistent with the ablation plots and numerical results.",
+      "confidence_level": 4
+    }
+  ],
+  "top_5_prompts": [
+    { "rank": 1, "interaction_id": 1, "prompt": "What are the most meaningful components to ablate in the SVM poisoning attack algorithm?", "why_important": "Determines the entire structure of the ablation study." },
+    { "rank": 2, "interaction_id": 2, "prompt": "How should I implement a random direction baseline as a fair comparison?", "why_important": "Fairness of ablation is critical for validity." },
+    { "rank": 3, "interaction_id": 3, "prompt": "What does it mean if the initialisation ablation shows less effect than the gradient ablation?", "why_important": "Required 5-7 sentence interpretation." },
+    { "rank": 4, "interaction_id": 1, "prompt": "How many runs should I average over for reliable ablation results?", "why_important": "Statistical reliability of comparison." },
+    { "rank": 5, "interaction_id": 2, "prompt": "How should I visualise ablation results to clearly show each component's contribution?", "why_important": "Required plot/table comparison." }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 3.1 of Part B.",
+    "understanding_acknowledged": true,
+    "signature": "Yash Lunawat",
+    "date": "2026-03-07"
+  }
+}

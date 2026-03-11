@@ -1,0 +1,88 @@
+{
+  "student_metadata": {
+    "name": "Yash Lunawat",
+    "roll_number": "230110",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "provider": "OpenAI",
+      "access_method": "chat.openai.com",
+      "verified": true,
+      "verification_source": "openai.com/index/introducing-gpt-5-2 — Released December 11, 2025"
+    },
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "provider": "Google DeepMind",
+      "access_method": "gemini.google.com — Deep Research feature with Gemini 3 model",
+      "verified": true,
+      "verification_source": "blog.google/products/gemini/gemini-3 — Released November 2025; Deep Research confirmed at gemini.google/overview/deep-research"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "task_tag": "Task 1.1",
+      "purpose": "Structuring the step-by-step breakdown of the poisoning attack Algorithm 1",
+      "prompt": "Explain the step-by-step process of the poisoning attack in Algorithm 1 of Biggio et al. 2012, breaking it into input/what happens/purpose format.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Rewrote the summary to focus on the kernelisation novelty. Added specific paper references and section numbers. Verified all LaTeX equations against the paper.",
+      "how_it_helped": "Provided a clear pedagogical structure for breaking down the 7 steps of the attack algorithm.",
+      "student_verification": "Cross-checked every equation reference against the paper (Eqs. 4-10, Algorithm 1). Verified step descriptions match the code in task_2_2.ipynb.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "task_tag": "Task 1.1",
+      "purpose": "Deep research on the implicit function theorem connection to KKT conditions",
+      "prompt": "How does the implicit function theorem connect to the KKT conditions in deriving Equation 10 of the SVM poisoning paper?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Verified the derivation pathway and confirmed the Sherman-Morrison-Woodbury formula usage in Eq. 8.",
+      "how_it_helped": "Used Deep Research to trace the mathematical lineage from KKT stationarity through implicit differentiation to the closed-form gradient.",
+      "student_verification": "Checked Section 2.1 derivation and confirmed the matrix inversion formula against the paper.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "ChatGPT",
+      "model": "GPT-5.2 Thinking",
+      "task_tag": "Task 1.1",
+      "purpose": "Writing the final summary sentence for the core contribution",
+      "prompt": "Summarise the core contribution of this paper in a single sentence suitable for a technical audience.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Refined to emphasise that the gradient is kernelised and operates in input space.",
+      "how_it_helped": "Provided concise phrasing for the novelty statement.",
+      "student_verification": "Confirmed against Section 1 introduction and Section 4 conclusions.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    { "rank": 1, "interaction_id": 1, "prompt": "Explain the step-by-step process of the poisoning attack in Algorithm 1 of Biggio et al. 2012", "why_important": "Core structure for the entire Task 1.1 notebook." },
+    { "rank": 2, "interaction_id": 2, "prompt": "How does the implicit function theorem connect to the KKT conditions in deriving Equation 10?", "why_important": "Key mathematical insight for understanding the gradient derivation." },
+    { "rank": 3, "interaction_id": 3, "prompt": "What is the significance of the kernelised gradient being expressible only through kernel derivatives?", "why_important": "Explains the paper's main novelty over prior work." },
+    { "rank": 4, "interaction_id": 3, "prompt": "Summarise the core contribution in a single sentence suitable for a technical audience", "why_important": "Final summary sentence for the notebook." },
+    { "rank": 5, "interaction_id": 2, "prompt": "What does the Sherman-Morrison-Woodbury formula contribute to Equation 8?", "why_important": "Matrix inversion detail needed for the step-by-step explanation." }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 1.1 of Part B.",
+    "understanding_acknowledged": true,
+    "signature": "Yash Lunawat",
+    "date": "2026-03-07"
+  }
+}

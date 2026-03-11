@@ -1,0 +1,88 @@
+{
+  "student_metadata": {
+    "name": "Yash Lunawat",
+    "roll_number": "230110",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "access_method": "claude.ai",
+      "verified": true,
+      "verification_source": "Anthropic product page — Claude Sonnet 4.6, Claude 4.6 model family"
+    },
+    {
+      "tool_name": "Kimi",
+      "model": "Kimi K2.5 Instant",
+      "provider": "Moonshot AI",
+      "access_method": "kimi.com — Instant mode (direct responses, no reasoning traces)",
+      "verified": true,
+      "verification_source": "kimi.com and huggingface.co/moonshotai/Kimi-K2.5 — Released January 27, 2026"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "task_tag": "Task 1.2",
+      "purpose": "Identifying the three key assumptions underlying the poisoning attack method",
+      "prompt": "What are the key assumptions that the poisoning attack in Biggio et al. 2012 depends on? List at least three with reasoning.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Added exact paper quotes as references. Refined violation scenario for Assumption 3 to specifically mention extreme C values.",
+      "how_it_helped": "Identified white-box knowledge, label control, and adiabatic stability as three distinct, non-overlapping assumptions.",
+      "student_verification": "Verified each assumption against the paper text — confirmed exact quotes from Section 2, Section 2.1, and Section 4.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Kimi",
+      "model": "Kimi K2.5 Instant",
+      "task_tag": "Task 1.2",
+      "purpose": "Quick lookup of the adiabatic condition and its role in SVM set partition stability",
+      "prompt": "Explain the adiabatic condition in the context of SVM set partitions S, E, R as defined in Biggio et al. 2012.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Connected to Eqs. 4-5 and Algorithm 1's small step size. Added the extreme C discussion.",
+      "how_it_helped": "Quickly clarified that the adiabatic condition means the set partition must remain unchanged under small perturbations.",
+      "student_verification": "Checked Section 2.1 Equations 4-5 and Section 4 conclusions about 'many tiny gradient steps'.",
+      "confidence_level": 4
+    },
+    {
+      "interaction_id": 3,
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "task_tag": "Task 1.2",
+      "purpose": "Formulating a realistic violation scenario for the label control assumption",
+      "prompt": "What happens if the attacker cannot control the label of the injected point? Give a concrete real-world scenario.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Added the spam filter and medical diagnosis examples. Connected to Section 4 conclusions quote.",
+      "how_it_helped": "Suggested the human-labelling oracle scenario where labels are assigned by trusted sources.",
+      "student_verification": "Confirmed with Section 4 quote about 'labels assigned by trusted sources such as humans'.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    { "rank": 1, "interaction_id": 1, "prompt": "What are the key assumptions that the poisoning attack in Biggio et al. 2012 depends on?", "why_important": "Core task: identifying the three assumptions." },
+    { "rank": 2, "interaction_id": 2, "prompt": "Explain the adiabatic condition in the context of SVM set partitions S, E, R", "why_important": "Assumption 3 is the most technically nuanced." },
+    { "rank": 3, "interaction_id": 3, "prompt": "What happens if the attacker cannot control the label of the injected point?", "why_important": "Violation scenario for Assumption 2." },
+    { "rank": 4, "interaction_id": 1, "prompt": "Give a concrete violation scenario for the white-box knowledge assumption", "why_important": "Violation scenario for Assumption 1." },
+    { "rank": 5, "interaction_id": 2, "prompt": "Where in the paper are these assumptions stated or implied?", "why_important": "Paper references required by rubric." }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 1.2 of Part B.",
+    "understanding_acknowledged": true,
+    "signature": "Yash Lunawat",
+    "date": "2026-03-07"
+  }
+}

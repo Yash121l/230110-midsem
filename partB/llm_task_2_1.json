@@ -1,0 +1,73 @@
+{
+  "student_metadata": {
+    "name": "Yash Lunawat",
+    "roll_number": "230110",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part B",
+    "submission_date": "2026-03-11"
+  },
+  "llm_tools_used": [
+    {
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "provider": "Anthropic",
+      "access_method": "claude.ai",
+      "verified": true,
+      "verification_source": "Anthropic product page — Claude Sonnet 4.6, Claude 4.6 model family"
+    },
+    {
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "provider": "Google DeepMind",
+      "access_method": "gemini.google.com — Deep Research feature with Gemini 3 model",
+      "verified": true,
+      "verification_source": "blog.google/products/gemini/gemini-3 — Released November 2025; Deep Research confirmed at gemini.google/overview/deep-research"
+    }
+  ],
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "date": "2026-03-07",
+      "tool_name": "Gemini",
+      "model": "Gemini 3 Deep Think with Deep Research",
+      "task_tag": "Task 2.1",
+      "purpose": "Researching suitable toy datasets for SVM poisoning attack demonstration",
+      "prompt": "What is a good toy dataset for demonstrating SVM poisoning attacks that has at least 100 samples and 2 features? Search for commonly used datasets in adversarial ML papers.",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Chose Breast Cancer specifically for its binary classification structure. Wrote the data loading code independently.",
+      "how_it_helped": "Deep Research identified several candidate datasets from adversarial ML literature; Breast Cancer was selected for its SVM-friendly properties.",
+      "student_verification": "Verified the dataset meets minimum requirements (569 > 100 samples, 30 > 2 features).",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "date": "2026-03-07",
+      "tool_name": "Claude",
+      "model": "Claude Sonnet 4.6",
+      "task_tag": "Task 2.1",
+      "purpose": "Determining appropriate preprocessing to match the paper's methodology",
+      "prompt": "How does the paper preprocess MNIST data before training the SVM? What normalisation is applied?",
+      "llm_response_used": "Yes",
+      "code_used_verbatim": false,
+      "student_modification": "Applied MinMaxScaler to [0,1] range. Added stratified splitting to maintain class balance.",
+      "how_it_helped": "Identified that the paper normalises MNIST pixels to [0,1], so MinMaxScaler is the appropriate analogue.",
+      "student_verification": "Checked Section 3.2 of the paper for preprocessing details.",
+      "confidence_level": 5
+    }
+  ],
+  "top_5_prompts": [
+    { "rank": 1, "interaction_id": 1, "prompt": "What is a good toy dataset for demonstrating SVM poisoning attacks that has at least 100 samples?", "why_important": "Core dataset selection decision." },
+    { "rank": 2, "interaction_id": 2, "prompt": "How does the paper preprocess MNIST data before training the SVM?", "why_important": "Preprocessing must match paper methodology." },
+    { "rank": 3, "interaction_id": 2, "prompt": "What preprocessing should I apply to make results comparable with the paper?", "why_important": "Ensures fair comparison." },
+    { "rank": 4, "interaction_id": 1, "prompt": "How should I justify using a different dataset than the paper?", "why_important": "Rubric requires 3-5 sentence justification." },
+    { "rank": 5, "interaction_id": 1, "prompt": "What are the expected limitations of using a linearly separable dataset for this attack?", "why_important": "Gap analysis context." }
+  ],
+  "student_declaration": {
+    "statement": "I declare that this JSON file contains a complete and honest record of my LLM usage for Task 2.1 of Part B.",
+    "understanding_acknowledged": true,
+    "signature": "Yash Lunawat",
+    "date": "2026-03-07"
+  }
+}
